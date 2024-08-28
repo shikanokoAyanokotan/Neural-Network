@@ -34,7 +34,7 @@ model = tf.keras.Sequential([
   
 ## Compiling the model  
 ```python  
-model.compile(optimizer='adam', loss='cross_entropy', metrics=['accuracy'])
+model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
 ```  
 * `optimizer='adam'`: Adam (Adaptive Moment Estimation) is an optimization algorithm that is commonly used in training neural networks. It’s an extension of Stochastic Gradient Descent (SGD) that adapts the learning rate for each parameter based on estimates of first and second moments of the gradients. It’s well-suited for most problems.  
 * `loss='binary_crossentropy'`: Binary Crossentropy is the loss function used for binary classification problems. It measures the difference between the true label and the predicted probability. The goal during training is to minimize this loss function.  
@@ -42,7 +42,7 @@ model.compile(optimizer='adam', loss='cross_entropy', metrics=['accuracy'])
 
 ## Training the model  
 ```python  
-model.fit(X, Y, epochs=500, verbose=0)
+model.fit(X, Y, epochs=5, verbose=1)
 ```
 * `fit(X, Y)`: This function starts the training process. The input data X and output labels Y are fed into the model.  
 * `epochs=5`: The model is trained for 5 epochs. One epoch means the model will go through the entire dataset once. By using 5 epochs, we allow the model to repeatedly adjust the weights to minimize the loss.  
@@ -51,6 +51,7 @@ model.fit(X, Y, epochs=500, verbose=0)
 ## Evaluating the model  
 ```python  
 loss, accuracy = model.evaluate(X, Y)
+print(f"Model Accuracy: {accuracy * 100:.2f}%")
 ```
 * `evaluate(X, Y)`: This function evaluates the performance of the model on the given data (in this case, the XOR problem). It returns the loss and the accuracy of the model.  
 * `print(f"Model Accuracy: {accuracy * 100:.2f}%")`: This line prints the accuracy of the model as a percentage.  

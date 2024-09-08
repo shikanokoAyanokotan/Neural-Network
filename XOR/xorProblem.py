@@ -15,7 +15,7 @@ model = tf.keras.Sequential([
 model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
 
 # Train the model
-model.fit(X, Y, epochs=2000, verbose=0)
+model.fit(X, Y, epochs=10, verbose=1)
 
 # Evaluate the model
 loss, accuracy = model.evaluate(X, Y)
